@@ -1,0 +1,59 @@
+image: node
+
+stages:
+  - test
+  - deploy
+  - migrate
+  - cleanup
+
+unit_test:
+  stage: test
+  cache:
+    paths:
+      - node_modules
+  variables:
+    TEST_ENV: ci-test
+    PORT: "3002"
+  script:
+    - npm install --silent
+    - npm test --silent
+  except:
+    - master
+
+staging-deploy:
+  image: docker:git
+  services:
+    - docker:dind
+  stage: deploy
+  environment: staging
+  cache:
+    paths:
+      - node_modules
+  script:
+    - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" $DOCKER_HOST
+    - docker build -t $DOCKER_HOST/example/api:latest .
+    - docker push $DOCKER_HOST/example/api:latest
+  only:
+    - tags
+  when: on_success
+
+staging-migrate:
+  stage: migrate
+  environment: staging
+  cache:
+    paths:
+      - node_modules
+  script:
+    - npm install
+    - npm run migrate
+  only:
+    - tags
+  when: on_success
+
+clean:
+  stage: cleanup
+  script:
+    - rm -rf *
+  except:
+    - master
+  when: always

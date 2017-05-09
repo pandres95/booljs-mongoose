@@ -1,0 +1,18 @@
+{
+    "development": {
+        "host": "localhost",
+        "database": "agentowl"
+    },
+    "ci-test": {
+        "host": "mongo",
+        "database": "agentowl_test"
+    },
+    "test": {
+        "host": "localhost",
+        "database": "agentowl_test"
+    },
+    "production": {
+        "host": "example.com",
+        "database": "agentowl"
+    }
+}

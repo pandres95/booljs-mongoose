@@ -1,0 +1,48 @@
+{
+  "name": "example-mongoose-api",
+  "version": "0.0.1",
+  "description": "Example API: Mongoose login using OAuth2 and Passport",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha --timeout 10000 test/_.js test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/booljs/booljs-example"
+  },
+  "keywords": [
+    "booljs",
+    "example",
+    "mongoose",
+    "api"
+  ],
+  "author": "Pablo Andrés Dorado Suárez",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bool.js": "^0.6.2",
+    "booljs-mongoose": "^0.3.0",
+    "booljs-oauth2": "^0.1.0",
+    "booljs-passport": "^0.1.0",
+    "crypto": "0.0.3",
+    "moment": "^2.18.1",
+    "mongoose": "^4.9.7",
+    "mongoose-deep-populate": "^3.0.0",
+    "mongoose-private-paths": "^0.7.0",
+    "oauth2orize": "^1.8.0",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "passport-http-bearer": "^1.0.1",
+    "passport-oauth2-client-password": "^0.1.2",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "faker": "^4.1.0",
+    "mocha": "^3.3.0",
+    "supertest": "^3.0.0",
+    "supertest-as-promised": "^4.0.2"
+  }
+}
