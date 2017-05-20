@@ -6,7 +6,7 @@
             "clientPassword",
             "httpClientPassword"
         ],
-        "defaultStrategy": "basic",
+        "defaultStrategy": "bearer",
         "strategyOptions": {
             "session": false
         }
