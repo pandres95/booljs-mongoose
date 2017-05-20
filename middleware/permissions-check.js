@@ -13,7 +13,6 @@ module.exports = class PermissionsChecker extends API.RouteMiddleware {
         let app = _instance.getComponents();
 
         return function (request, response, next) {
-            log.debug(request.user);
             if(_.intersection(
                 route.permissions, request.user.permissions
             ).length > 0) { return next(); }
